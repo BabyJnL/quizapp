@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace quizapp.Model
 {
+    // Polymorphism Concept & Override method
+
     public class Question: DB
     {
         public int QuizId { get; set; }

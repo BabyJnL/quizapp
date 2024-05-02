@@ -88,38 +88,6 @@ namespace quizapp.View
             }
         }
 
-        private void radioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            System.Windows.Forms.RadioButton selectedRadioButton = sender as System.Windows.Forms.RadioButton;
-
-            if (selectedRadioButton.Checked)
-            {
-                if (selectedRadioButton == optionABtn)
-                {
-                    optionBBtn.Checked = false;
-                    optionCBtn.Checked = false;
-
-                    this._correctAnswer = this.optionAInput.Text;
-                }
-                else if (selectedRadioButton == optionBBtn)
-                {
-                    optionABtn.Checked = false;
-                    optionCBtn.Checked = false;
-
-                    this._correctAnswer = this.optionBInput.Text;
-                }
-                else if (selectedRadioButton == optionCBtn)
-                {
-                    optionABtn.Checked = false;
-                    optionBBtn.Checked = false;
-
-                    this._correctAnswer = this.optionCInput.Text;
-                }
-
-                Console.WriteLine(this._correctAnswer);
-            }
-        }
-
         private void addQuestionBtn_Click(object sender, EventArgs e)
         {
             Quiz quiz = (Quiz)quizSelectionList.SelectedItem;
