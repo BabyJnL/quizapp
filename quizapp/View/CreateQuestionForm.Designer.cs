@@ -330,6 +330,7 @@
             this.quizSelectionList.Size = new System.Drawing.Size(303, 44);
             this.quizSelectionList.Sorted = true;
             this.quizSelectionList.TabIndex = 4;
+            this.quizSelectionList.SelectedIndexChanged += new System.EventHandler(this.quizSelectionList_SelectedIndexChanged);
             // 
             // quizSelectionLabel
             // 

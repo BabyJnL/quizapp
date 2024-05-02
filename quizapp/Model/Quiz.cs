@@ -21,14 +21,17 @@ namespace quizapp.Model
             this.Title = title;
             this.Type = type;
             this.Category = category;
+        }
 
+        public void Save()
+        {
             // Save quiz to database
             string sql = "INSERT INTO quizzes (title, type, category) VALUES (@title, @type, @category)";
             MySqlCommand insertCmd = new MySqlCommand(sql, Connection);
 
-            insertCmd.Parameters.AddWithValue("@title", title);
-            insertCmd.Parameters.AddWithValue("@type", type);
-            insertCmd.Parameters.AddWithValue("@category", category);
+            insertCmd.Parameters.AddWithValue("@title", this.Title);
+            insertCmd.Parameters.AddWithValue("@type", this.Type);
+            insertCmd.Parameters.AddWithValue("@category", this.Category);
 
             try
             {
@@ -46,11 +49,11 @@ namespace quizapp.Model
             }
         }
 
-        public static List<string> GetAll()
+        public static List<Quiz> GetAll()
         {
-            List<string> quizzes = new List<string>();
+            List<Quiz> quizzes = new List<Quiz>();
 
-            string sql = "SELECT title FROM quizzes";
+            string sql = "SELECT * FROM quizzes";
             MySqlCommand queryCommand = new MySqlCommand(sql, Connection);
 
             try
@@ -58,7 +61,11 @@ namespace quizapp.Model
                 Connection.Open();
                 using (MySqlDataReader reader = queryCommand.ExecuteReader())
                 {
-                    while (reader.Read()) quizzes.Add(reader["title"].ToString());
+                    while (reader.Read())
+                    {
+                        Quiz quiz = new Quiz(reader["title"].ToString(), reader["type"].ToString(), reader["category"].ToString());
+                        quizzes.Add(quiz);
+                    }
                 }
             }
             catch (Exception e)
