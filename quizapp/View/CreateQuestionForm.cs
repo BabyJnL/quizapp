@@ -37,6 +37,12 @@ namespace quizapp.View
             this.quizSelectionList.Items.AddRange(quizzes);
         }
 
+        private void ReloadQuiz()
+        {
+            this.quizSelectionList.Items.Clear();
+            LoadQuiz();
+        }
+
         // Event
         private void exitBtn_Click(object sender, EventArgs e)
         {
@@ -52,6 +58,9 @@ namespace quizapp.View
             if (this.quizNameInput.Text == "" || this.quizTypeList.SelectedIndex == -1 || this.quizCategoryList.SelectedIndex == -1)
                 Dialog.Error("Please fill the form!");
             else new Quiz(this.quizNameInput.Text, this.quizTypeList.SelectedItem.ToString(), this.quizCategoryList.SelectedItem.ToString());
+
+            // Reload quiz data
+            ReloadQuiz();
         }
     }
 }
