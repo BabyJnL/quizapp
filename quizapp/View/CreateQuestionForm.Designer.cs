@@ -45,14 +45,14 @@
             this.optionCInput = new System.Windows.Forms.TextBox();
             this.optionBInput = new System.Windows.Forms.TextBox();
             this.optionAInput = new System.Windows.Forms.TextBox();
-            this.optionCCheckBox = new System.Windows.Forms.CheckBox();
-            this.optionBCheckBox = new System.Windows.Forms.CheckBox();
-            this.optionACheckBox = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.questionNameInput = new System.Windows.Forms.RichTextBox();
             this.questionNameLabel = new System.Windows.Forms.Label();
             this.quizSelectionList = new System.Windows.Forms.ListBox();
             this.quizSelectionLabel = new System.Windows.Forms.Label();
+            this.optionABtn = new System.Windows.Forms.RadioButton();
+            this.optionBBtn = new System.Windows.Forms.RadioButton();
+            this.optionCBtn = new System.Windows.Forms.RadioButton();
             this.quizDetailBox.SuspendLayout();
             this.addQuestionBox.SuspendLayout();
             this.SuspendLayout();
@@ -195,9 +195,10 @@
             // quizNameInput
             // 
             this.quizNameInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.quizNameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quizNameInput.Location = new System.Drawing.Point(135, 53);
             this.quizNameInput.Name = "quizNameInput";
-            this.quizNameInput.Size = new System.Drawing.Size(303, 19);
+            this.quizNameInput.Size = new System.Drawing.Size(303, 15);
             this.quizNameInput.TabIndex = 1;
             // 
             // quizTitleLabel
@@ -212,13 +213,13 @@
             // 
             // addQuestionBox
             // 
+            this.addQuestionBox.Controls.Add(this.optionCBtn);
+            this.addQuestionBox.Controls.Add(this.optionBBtn);
+            this.addQuestionBox.Controls.Add(this.optionABtn);
             this.addQuestionBox.Controls.Add(this.addQuestionBtn);
             this.addQuestionBox.Controls.Add(this.optionCInput);
             this.addQuestionBox.Controls.Add(this.optionBInput);
             this.addQuestionBox.Controls.Add(this.optionAInput);
-            this.addQuestionBox.Controls.Add(this.optionCCheckBox);
-            this.addQuestionBox.Controls.Add(this.optionBCheckBox);
-            this.addQuestionBox.Controls.Add(this.optionACheckBox);
             this.addQuestionBox.Controls.Add(this.label1);
             this.addQuestionBox.Controls.Add(this.questionNameInput);
             this.addQuestionBox.Controls.Add(this.questionNameLabel);
@@ -245,53 +246,29 @@
             // optionCInput
             // 
             this.optionCInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.optionCInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.optionCInput.Location = new System.Drawing.Point(176, 300);
             this.optionCInput.Name = "optionCInput";
-            this.optionCInput.Size = new System.Drawing.Size(273, 26);
+            this.optionCInput.Size = new System.Drawing.Size(273, 22);
             this.optionCInput.TabIndex = 13;
             // 
             // optionBInput
             // 
             this.optionBInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.optionBInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.optionBInput.Location = new System.Drawing.Point(176, 262);
             this.optionBInput.Name = "optionBInput";
-            this.optionBInput.Size = new System.Drawing.Size(273, 26);
+            this.optionBInput.Size = new System.Drawing.Size(273, 22);
             this.optionBInput.TabIndex = 12;
             // 
             // optionAInput
             // 
             this.optionAInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.optionAInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.optionAInput.Location = new System.Drawing.Point(176, 225);
             this.optionAInput.Name = "optionAInput";
-            this.optionAInput.Size = new System.Drawing.Size(273, 26);
+            this.optionAInput.Size = new System.Drawing.Size(273, 22);
             this.optionAInput.TabIndex = 11;
-            // 
-            // optionCCheckBox
-            // 
-            this.optionCCheckBox.AutoSize = true;
-            this.optionCCheckBox.Location = new System.Drawing.Point(146, 307);
-            this.optionCCheckBox.Name = "optionCCheckBox";
-            this.optionCCheckBox.Size = new System.Drawing.Size(15, 14);
-            this.optionCCheckBox.TabIndex = 10;
-            this.optionCCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // optionBCheckBox
-            // 
-            this.optionBCheckBox.AutoSize = true;
-            this.optionBCheckBox.Location = new System.Drawing.Point(146, 271);
-            this.optionBCheckBox.Name = "optionBCheckBox";
-            this.optionBCheckBox.Size = new System.Drawing.Size(15, 14);
-            this.optionBCheckBox.TabIndex = 9;
-            this.optionBCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // optionACheckBox
-            // 
-            this.optionACheckBox.AutoSize = true;
-            this.optionACheckBox.Location = new System.Drawing.Point(146, 232);
-            this.optionACheckBox.Name = "optionACheckBox";
-            this.optionACheckBox.Size = new System.Drawing.Size(15, 14);
-            this.optionACheckBox.TabIndex = 8;
-            this.optionACheckBox.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -305,6 +282,7 @@
             // 
             // questionNameInput
             // 
+            this.questionNameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.questionNameInput.Location = new System.Drawing.Point(146, 113);
             this.questionNameInput.Name = "questionNameInput";
             this.questionNameInput.Size = new System.Drawing.Size(303, 84);
@@ -341,6 +319,36 @@
             this.quizSelectionLabel.Size = new System.Drawing.Size(94, 20);
             this.quizSelectionLabel.TabIndex = 1;
             this.quizSelectionLabel.Text = "Select Quiz:";
+            // 
+            // optionABtn
+            // 
+            this.optionABtn.AutoSize = true;
+            this.optionABtn.Location = new System.Drawing.Point(146, 228);
+            this.optionABtn.Name = "optionABtn";
+            this.optionABtn.Size = new System.Drawing.Size(14, 13);
+            this.optionABtn.TabIndex = 15;
+            this.optionABtn.TabStop = true;
+            this.optionABtn.UseVisualStyleBackColor = true;
+            // 
+            // optionBBtn
+            // 
+            this.optionBBtn.AutoSize = true;
+            this.optionBBtn.Location = new System.Drawing.Point(146, 265);
+            this.optionBBtn.Name = "optionBBtn";
+            this.optionBBtn.Size = new System.Drawing.Size(14, 13);
+            this.optionBBtn.TabIndex = 16;
+            this.optionBBtn.TabStop = true;
+            this.optionBBtn.UseVisualStyleBackColor = true;
+            // 
+            // optionCBtn
+            // 
+            this.optionCBtn.AutoSize = true;
+            this.optionCBtn.Location = new System.Drawing.Point(146, 303);
+            this.optionCBtn.Name = "optionCBtn";
+            this.optionCBtn.Size = new System.Drawing.Size(14, 13);
+            this.optionCBtn.TabIndex = 17;
+            this.optionCBtn.TabStop = true;
+            this.optionCBtn.UseVisualStyleBackColor = true;
             // 
             // CreateQuestionForm
             // 
@@ -386,12 +394,12 @@
         private System.Windows.Forms.Label questionNameLabel;
         private System.Windows.Forms.RichTextBox questionNameInput;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox optionACheckBox;
         private System.Windows.Forms.Button addQuestionBtn;
         private System.Windows.Forms.TextBox optionCInput;
         private System.Windows.Forms.TextBox optionBInput;
         private System.Windows.Forms.TextBox optionAInput;
-        private System.Windows.Forms.CheckBox optionCCheckBox;
-        private System.Windows.Forms.CheckBox optionBCheckBox;
+        private System.Windows.Forms.RadioButton optionBBtn;
+        private System.Windows.Forms.RadioButton optionABtn;
+        private System.Windows.Forms.RadioButton optionCBtn;
     }
 }

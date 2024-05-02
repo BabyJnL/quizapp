@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using quizapp.Model;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace quizapp.View
 {
@@ -22,9 +23,9 @@ namespace quizapp.View
         // Methods
         private void toggleMutilpleChoice(bool toggle)
         {
-            this.optionACheckBox.Visible = toggle;
-            this.optionBCheckBox.Visible = toggle;
-            this.optionCCheckBox.Visible = toggle;
+            this.optionABtn.Visible = toggle;
+            this.optionBBtn.Visible = toggle;
+            this.optionCBtn.Visible = toggle;
 
             this.optionAInput.Visible = toggle;
             this.optionBInput.Visible = toggle;
@@ -71,6 +72,31 @@ namespace quizapp.View
             {
                 object selectedValue = quizSelectionList.SelectedValue;
                 Console.WriteLine("Selected Value: " + selectedValue.ToString());
+            }
+        }
+
+        private void radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            System.Windows.Forms.RadioButton selectedRadioButton = sender as System.Windows.Forms.RadioButton;
+
+            if (selectedRadioButton.Checked)
+            {
+                // Lakukan tindakan sesuai dengan RadioButton yang dipilih
+                if (selectedRadioButton == optionABtn)
+                {
+                    optionBBtn.Checked = false;
+                    optionCBtn.Checked = false;
+                }
+                else if (selectedRadioButton == optionBBtn)
+                {
+                    optionABtn.Checked = false;
+                    optionCBtn.Checked = false;
+                }
+                else if (selectedRadioButton == optionCBtn)
+                {
+                    optionABtn.Checked = false;
+                    optionBBtn.Checked = false;
+                }
             }
         }
     }
