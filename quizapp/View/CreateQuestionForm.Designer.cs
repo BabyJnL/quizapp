@@ -147,11 +147,15 @@
             this.quizCategoryList.FormattingEnabled = true;
             this.quizCategoryList.ItemHeight = 20;
             this.quizCategoryList.Items.AddRange(new object[] {
-            "Essay",
-            "Multiple Choice"});
-            this.quizCategoryList.Location = new System.Drawing.Point(135, 258);
+            "C",
+            "C#",
+            "C++",
+            "Javascript",
+            "PHP",
+            "Python"});
+            this.quizCategoryList.Location = new System.Drawing.Point(135, 201);
             this.quizCategoryList.Name = "quizCategoryList";
-            this.quizCategoryList.Size = new System.Drawing.Size(303, 44);
+            this.quizCategoryList.Size = new System.Drawing.Size(303, 104);
             this.quizCategoryList.Sorted = true;
             this.quizCategoryList.TabIndex = 5;
             // 
@@ -159,7 +163,7 @@
             // 
             this.quizCategoryLabel.AutoSize = true;
             this.quizCategoryLabel.ForeColor = System.Drawing.SystemColors.Info;
-            this.quizCategoryLabel.Location = new System.Drawing.Point(29, 268);
+            this.quizCategoryLabel.Location = new System.Drawing.Point(29, 247);
             this.quizCategoryLabel.Name = "quizCategoryLabel";
             this.quizCategoryLabel.Size = new System.Drawing.Size(77, 20);
             this.quizCategoryLabel.TabIndex = 4;
@@ -170,15 +174,11 @@
             this.quizTypeList.FormattingEnabled = true;
             this.quizTypeList.ItemHeight = 20;
             this.quizTypeList.Items.AddRange(new object[] {
-            "C",
-            "C#",
-            "C++",
-            "Javascript",
-            "PHP",
-            "Python"});
+            "Essay",
+            "Multiple Choice"});
             this.quizTypeList.Location = new System.Drawing.Point(135, 113);
             this.quizTypeList.Name = "quizTypeList";
-            this.quizTypeList.Size = new System.Drawing.Size(303, 84);
+            this.quizTypeList.Size = new System.Drawing.Size(303, 44);
             this.quizTypeList.Sorted = true;
             this.quizTypeList.TabIndex = 3;
             // 
@@ -186,7 +186,7 @@
             // 
             this.quizTypeLabel.AutoSize = true;
             this.quizTypeLabel.ForeColor = System.Drawing.SystemColors.Info;
-            this.quizTypeLabel.Location = new System.Drawing.Point(29, 145);
+            this.quizTypeLabel.Location = new System.Drawing.Point(29, 116);
             this.quizTypeLabel.Name = "quizTypeLabel";
             this.quizTypeLabel.Size = new System.Drawing.Size(47, 20);
             this.quizTypeLabel.TabIndex = 2;

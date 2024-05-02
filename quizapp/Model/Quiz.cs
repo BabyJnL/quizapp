@@ -15,7 +15,8 @@ namespace quizapp.Model
 
         public Quiz(string title, string type, string category)
         {
-            Console.WriteLine("{0}, {1}, {2}", title, type, category);
+            if (type == "Multiple Choice")
+                type = "multiple_choice";
 
             this.Title = title;
             this.Type = type;
@@ -25,9 +26,9 @@ namespace quizapp.Model
             string sql = "INSERT INTO quizzes (title, type, category) VALUES (@title, @type, @category)";
             MySqlCommand insertCmd = new MySqlCommand(sql, Connection);
 
-            insertCmd.Parameters.AddWithValue("title", title);
-            insertCmd.Parameters.AddWithValue("type", type);
-            insertCmd.Parameters.AddWithValue("category", category);
+            insertCmd.Parameters.AddWithValue("@title", title);
+            insertCmd.Parameters.AddWithValue("@type", type);
+            insertCmd.Parameters.AddWithValue("@category", category);
 
             try
             {
