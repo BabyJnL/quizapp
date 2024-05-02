@@ -41,6 +41,9 @@
             this.quizNameInput = new System.Windows.Forms.TextBox();
             this.quizTitleLabel = new System.Windows.Forms.Label();
             this.addQuestionBox = new System.Windows.Forms.GroupBox();
+            this.optionCBtn = new System.Windows.Forms.RadioButton();
+            this.optionBBtn = new System.Windows.Forms.RadioButton();
+            this.optionABtn = new System.Windows.Forms.RadioButton();
             this.addQuestionBtn = new System.Windows.Forms.Button();
             this.optionCInput = new System.Windows.Forms.TextBox();
             this.optionBInput = new System.Windows.Forms.TextBox();
@@ -50,9 +53,6 @@
             this.questionNameLabel = new System.Windows.Forms.Label();
             this.quizSelectionList = new System.Windows.Forms.ListBox();
             this.quizSelectionLabel = new System.Windows.Forms.Label();
-            this.optionABtn = new System.Windows.Forms.RadioButton();
-            this.optionBBtn = new System.Windows.Forms.RadioButton();
-            this.optionCBtn = new System.Windows.Forms.RadioButton();
             this.quizDetailBox.SuspendLayout();
             this.addQuestionBox.SuspendLayout();
             this.SuspendLayout();
@@ -233,6 +233,39 @@
             this.addQuestionBox.TabStop = false;
             this.addQuestionBox.Text = "Add Question";
             // 
+            // optionCBtn
+            // 
+            this.optionCBtn.AutoSize = true;
+            this.optionCBtn.Location = new System.Drawing.Point(146, 303);
+            this.optionCBtn.Name = "optionCBtn";
+            this.optionCBtn.Size = new System.Drawing.Size(14, 13);
+            this.optionCBtn.TabIndex = 17;
+            this.optionCBtn.TabStop = true;
+            this.optionCBtn.UseVisualStyleBackColor = true;
+            this.optionCBtn.CheckedChanged += new System.EventHandler(this.optionCBtn_CheckedChanged);
+            // 
+            // optionBBtn
+            // 
+            this.optionBBtn.AutoSize = true;
+            this.optionBBtn.Location = new System.Drawing.Point(146, 265);
+            this.optionBBtn.Name = "optionBBtn";
+            this.optionBBtn.Size = new System.Drawing.Size(14, 13);
+            this.optionBBtn.TabIndex = 16;
+            this.optionBBtn.TabStop = true;
+            this.optionBBtn.UseVisualStyleBackColor = true;
+            this.optionBBtn.CheckedChanged += new System.EventHandler(this.optionBBtn_CheckedChanged);
+            // 
+            // optionABtn
+            // 
+            this.optionABtn.AutoSize = true;
+            this.optionABtn.Location = new System.Drawing.Point(146, 228);
+            this.optionABtn.Name = "optionABtn";
+            this.optionABtn.Size = new System.Drawing.Size(14, 13);
+            this.optionABtn.TabIndex = 15;
+            this.optionABtn.TabStop = true;
+            this.optionABtn.UseVisualStyleBackColor = true;
+            this.optionABtn.CheckedChanged += new System.EventHandler(this.optionABtn_CheckedChanged);
+            // 
             // addQuestionBtn
             // 
             this.addQuestionBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -242,6 +275,7 @@
             this.addQuestionBtn.TabIndex = 14;
             this.addQuestionBtn.Text = "Add";
             this.addQuestionBtn.UseVisualStyleBackColor = true;
+            this.addQuestionBtn.Click += new System.EventHandler(this.addQuestionBtn_Click);
             // 
             // optionCInput
             // 
@@ -319,36 +353,6 @@
             this.quizSelectionLabel.Size = new System.Drawing.Size(94, 20);
             this.quizSelectionLabel.TabIndex = 1;
             this.quizSelectionLabel.Text = "Select Quiz:";
-            // 
-            // optionABtn
-            // 
-            this.optionABtn.AutoSize = true;
-            this.optionABtn.Location = new System.Drawing.Point(146, 228);
-            this.optionABtn.Name = "optionABtn";
-            this.optionABtn.Size = new System.Drawing.Size(14, 13);
-            this.optionABtn.TabIndex = 15;
-            this.optionABtn.TabStop = true;
-            this.optionABtn.UseVisualStyleBackColor = true;
-            // 
-            // optionBBtn
-            // 
-            this.optionBBtn.AutoSize = true;
-            this.optionBBtn.Location = new System.Drawing.Point(146, 265);
-            this.optionBBtn.Name = "optionBBtn";
-            this.optionBBtn.Size = new System.Drawing.Size(14, 13);
-            this.optionBBtn.TabIndex = 16;
-            this.optionBBtn.TabStop = true;
-            this.optionBBtn.UseVisualStyleBackColor = true;
-            // 
-            // optionCBtn
-            // 
-            this.optionCBtn.AutoSize = true;
-            this.optionCBtn.Location = new System.Drawing.Point(146, 303);
-            this.optionCBtn.Name = "optionCBtn";
-            this.optionCBtn.Size = new System.Drawing.Size(14, 13);
-            this.optionCBtn.TabIndex = 17;
-            this.optionCBtn.TabStop = true;
-            this.optionCBtn.UseVisualStyleBackColor = true;
             // 
             // CreateQuestionForm
             // 

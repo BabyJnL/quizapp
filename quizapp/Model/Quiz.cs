@@ -9,6 +9,7 @@ namespace quizapp.Model
 {
     public class Quiz: DB
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Type { get; set; }
         public string Category { get; set; }
@@ -64,6 +65,7 @@ namespace quizapp.Model
                     while (reader.Read())
                     {
                         Quiz quiz = new Quiz(reader["title"].ToString(), reader["type"].ToString(), reader["category"].ToString());
+                        quiz.Id = reader.GetInt32(reader.GetOrdinal("id"));
                         quizzes.Add(quiz);
                     }
                 }

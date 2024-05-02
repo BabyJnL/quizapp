@@ -14,6 +14,7 @@ namespace quizapp.View
 {
     partial class CreateQuestionForm : Form
     {
+        private string _correctAnswer;
         public CreateQuestionForm()
         {
             InitializeComponent();
@@ -38,12 +39,22 @@ namespace quizapp.View
 
             this.quizSelectionList.DataSource = quizzes;
             this.quizSelectionList.DisplayMember = "Title";
+
+            this.quizSelectionList.SelectedIndex = -1;
+            this.quizSelectionList.SelectedItem = null;
         }
 
         private void ReloadQuiz()
         {
             this.quizSelectionList.DataSource = null;
             LoadQuiz();
+        }
+
+        private void SetAsCorrectAnswer(object sender, System.Windows.Forms.RadioButton radioButton, TextBox inputBox)
+        {
+            System.Windows.Forms.RadioButton radioBtn = sender as System.Windows.Forms.RadioButton;
+
+            if (radioBtn.Checked) this._correctAnswer = inputBox.Text;
         }
 
         // Event
@@ -83,23 +94,70 @@ namespace quizapp.View
 
             if (selectedRadioButton.Checked)
             {
-                // Lakukan tindakan sesuai dengan RadioButton yang dipilih
                 if (selectedRadioButton == optionABtn)
                 {
                     optionBBtn.Checked = false;
                     optionCBtn.Checked = false;
+
+                    this._correctAnswer = this.optionAInput.Text;
                 }
                 else if (selectedRadioButton == optionBBtn)
                 {
                     optionABtn.Checked = false;
                     optionCBtn.Checked = false;
+
+                    this._correctAnswer = this.optionBInput.Text;
                 }
                 else if (selectedRadioButton == optionCBtn)
                 {
                     optionABtn.Checked = false;
                     optionBBtn.Checked = false;
+
+                    this._correctAnswer = this.optionCInput.Text;
+                }
+
+                Console.WriteLine(this._correctAnswer);
+            }
+        }
+
+        private void addQuestionBtn_Click(object sender, EventArgs e)
+        {
+            Quiz quiz = (Quiz)quizSelectionList.SelectedItem;
+
+            if (this.quizSelectionList.SelectedIndex != -1 || this.questionNameInput.Text != "")
+            {
+                if (quiz.Type == "essay")
+                {
+                    new Question(quiz.Id, this.questionNameInput.Text).Save();
+                }
+                else
+                {
+                    List<string> choices = new List<string>()
+                    {
+                        this.optionAInput.Text,
+                        this.optionBInput.Text,
+                        this.optionCInput.Text
+                    };
+
+                    new MultipleChoiceQuestion(quiz.Id, this.questionNameInput.Text, choices, this._correctAnswer).Save();
                 }
             }
+            else Dialog.Error("Please fill the question data");
+        }
+
+        private void optionABtn_CheckedChanged(object sender, EventArgs e)
+        {
+            SetAsCorrectAnswer(sender, this.optionABtn, this.optionAInput);
+        }
+
+        private void optionBBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            SetAsCorrectAnswer(sender, this.optionBBtn, this.optionBInput);
+        }
+
+        private void optionCBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            SetAsCorrectAnswer(sender, this.optionCBtn, this.optionCInput);
         }
     }
 }
