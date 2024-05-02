@@ -264,7 +264,6 @@
             // optionAInput
             // 
             this.optionAInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.optionAInput.Enabled = false;
             this.optionAInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.optionAInput.Location = new System.Drawing.Point(176, 225);
             this.optionAInput.Name = "optionAInput";
@@ -324,7 +323,6 @@
             // optionABtn
             // 
             this.optionABtn.AutoSize = true;
-            this.optionABtn.Enabled = false;
             this.optionABtn.Location = new System.Drawing.Point(146, 228);
             this.optionABtn.Name = "optionABtn";
             this.optionABtn.Size = new System.Drawing.Size(14, 13);

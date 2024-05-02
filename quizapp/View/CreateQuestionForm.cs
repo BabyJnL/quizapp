@@ -21,7 +21,7 @@ namespace quizapp.View
         }
 
         // Methods
-        private void toggleMutilpleChoice(bool toggle)
+        private void ToggleMutilpleChoice(bool toggle)
         {
             this.optionABtn.Enabled = toggle;
             this.optionBBtn.Enabled = toggle;
@@ -71,7 +71,8 @@ namespace quizapp.View
             if (quizSelectionList.SelectedItem != null)
             {
                 object selectedValue = quizSelectionList.SelectedValue;
-                Console.WriteLine("Selected Value: " + selectedValue.ToString());
+                if (selectedValue.ToString() != "multiple_choice") ToggleMutilpleChoice(false);
+                else ToggleMutilpleChoice(true);
             }
         }
 
