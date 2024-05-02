@@ -23,13 +23,13 @@ namespace quizapp.View
         // Methods
         private void toggleMutilpleChoice(bool toggle)
         {
-            this.optionABtn.Visible = toggle;
-            this.optionBBtn.Visible = toggle;
-            this.optionCBtn.Visible = toggle;
+            this.optionABtn.Enabled = toggle;
+            this.optionBBtn.Enabled = toggle;
+            this.optionCBtn.Enabled = toggle;
 
-            this.optionAInput.Visible = toggle;
-            this.optionBInput.Visible = toggle;
-            this.optionCInput.Visible = toggle;
+            this.optionAInput.Enabled = toggle;
+            this.optionBInput.Enabled = toggle;
+            this.optionCInput.Enabled = toggle;
         }
 
         private void LoadQuiz()
