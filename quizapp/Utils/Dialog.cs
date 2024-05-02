@@ -27,6 +27,12 @@ namespace quizapp
             MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        // Bug Dialog
+        public static void Bug(string message)
+        {
+            MessageBox.Show($"{message}\n\nPlease report this to developer. You can still running the app", "Bug Tracer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
         // Confirmation Dialog
         public static DialogResult Confirm (string message, string title = "Confirmation", MessageBoxButtons buttons = MessageBoxButtons.YesNo)
         {

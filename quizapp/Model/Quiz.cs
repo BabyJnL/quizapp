@@ -37,7 +37,7 @@ namespace quizapp.Model
             }
             catch (Exception e)
             {
-                Dialog.Error($"{e.Message}");
+                Dialog.Bug($"{e.Message}");
             }
             finally
             {
