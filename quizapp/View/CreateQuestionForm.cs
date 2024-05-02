@@ -71,7 +71,7 @@ namespace quizapp.View
             if (quizSelectionList.SelectedItem != null)
             {
                 Quiz selectedValue = (Quiz)quizSelectionList.SelectedValue;
-                Console.WriteLine(selectedValue.Type);
+
                 if (selectedValue.Type != "multiple_choice") ToggleMutilpleChoice(false);
                 else ToggleMutilpleChoice(true);
             }
