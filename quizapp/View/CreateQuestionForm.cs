@@ -35,9 +35,9 @@ namespace quizapp.View
         private void LoadQuiz()
         {
             List<Quiz> quizzes = Quiz.GetAll();
+
             this.quizSelectionList.DataSource = quizzes;
             this.quizSelectionList.DisplayMember = "Title";
-            this.quizSelectionList.ValueMember = "Type";
         }
 
         private void ReloadQuiz()
@@ -70,8 +70,9 @@ namespace quizapp.View
         {
             if (quizSelectionList.SelectedItem != null)
             {
-                object selectedValue = quizSelectionList.SelectedValue;
-                if (selectedValue.ToString() != "multiple_choice") ToggleMutilpleChoice(false);
+                Quiz selectedValue = (Quiz)quizSelectionList.SelectedValue;
+                Console.WriteLine(selectedValue.Type);
+                if (selectedValue.Type != "multiple_choice") ToggleMutilpleChoice(false);
                 else ToggleMutilpleChoice(true);
             }
         }
