@@ -80,5 +80,28 @@ namespace quizapp.Model
             }
             return quizzes;
         }
+
+        public static void Delete(int quizId)
+        {
+            string sql = "DELETE FROM quizzes WHERE id = @quizId";
+            MySqlCommand deleteCmd = new MySqlCommand(sql, Connection);
+
+            deleteCmd.Parameters.AddWithValue("@quizId", quizId);
+
+            try
+            {
+                Connection.Open();
+                deleteCmd.ExecuteNonQuery();
+                Dialog.Info("Quiz successfully deleted");
+            }
+            catch (Exception e)
+            {
+                Dialog.Bug($"{e.Message}");
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
     }
 }
