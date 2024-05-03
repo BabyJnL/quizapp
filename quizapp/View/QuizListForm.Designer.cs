@@ -114,6 +114,7 @@
             this.quizListTable.ShowEditingIcon = false;
             this.quizListTable.Size = new System.Drawing.Size(838, 361);
             this.quizListTable.TabIndex = 12;
+            this.quizListTable.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.quizListTable_CellMouseClick);
             // 
             // deleteQuizBtn
             // 
@@ -124,6 +125,7 @@
             this.deleteQuizBtn.TabIndex = 13;
             this.deleteQuizBtn.Text = "Delete";
             this.deleteQuizBtn.UseVisualStyleBackColor = true;
+            this.deleteQuizBtn.Click += new System.EventHandler(this.deleteQuizBtn_Click);
             // 
             // QuizListForm
             // 
