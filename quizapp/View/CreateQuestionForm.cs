@@ -22,6 +22,22 @@ namespace quizapp.View
         }
 
         // Methods
+        private void ToggleSection(string section)
+        {
+            switch (section)
+            {
+                case "CreateQuiz":
+                {
+                    this.addQuestionBox.Visible = true;
+                    this.quizDetailBox.Visible = true;
+                    
+                    
+                    break;
+                }
+           
+            }
+        }
+
         private void ToggleMutilpleChoice(bool toggle)
         {
             this.optionABtn.Enabled = toggle;
@@ -126,6 +142,13 @@ namespace quizapp.View
         private void optionCBtn_CheckedChanged(object sender, EventArgs e)
         {
             SetAsCorrectAnswer(sender, this.optionCBtn, this.optionCInput);
+        }
+
+        private void quizListBtn_Click(object sender, EventArgs e)
+        {
+            QuizListForm quizListForm = new QuizListForm();
+            this.Close();
+            quizListForm.Show();
         }
     }
 }

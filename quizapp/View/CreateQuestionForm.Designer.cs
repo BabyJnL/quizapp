@@ -30,7 +30,7 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.quizListBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.quizDetailBox = new System.Windows.Forms.GroupBox();
             this.createQuizBtn = new System.Windows.Forms.Button();
@@ -85,19 +85,20 @@
             this.button2.Text = "Create Quiz";
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // quizListBtn
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.SystemColors.Info;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.Location = new System.Drawing.Point(723, 528);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(349, 40);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Quiz List";
-            this.button3.UseVisualStyleBackColor = false;
+            this.quizListBtn.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.quizListBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Info;
+            this.quizListBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.quizListBtn.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quizListBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.quizListBtn.Location = new System.Drawing.Point(723, 528);
+            this.quizListBtn.Name = "quizListBtn";
+            this.quizListBtn.Size = new System.Drawing.Size(349, 40);
+            this.quizListBtn.TabIndex = 4;
+            this.quizListBtn.Text = "Quiz List";
+            this.quizListBtn.UseVisualStyleBackColor = false;
+            this.quizListBtn.Click += new System.EventHandler(this.quizListBtn_Click);
             // 
             // exitBtn
             // 
@@ -363,7 +364,7 @@
             this.Controls.Add(this.addQuestionBox);
             this.Controls.Add(this.quizDetailBox);
             this.Controls.Add(this.exitBtn);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.quizListBtn);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -382,7 +383,7 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button quizListBtn;
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.GroupBox quizDetailBox;
         private System.Windows.Forms.GroupBox addQuestionBox;
