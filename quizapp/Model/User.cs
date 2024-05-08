@@ -19,7 +19,10 @@ namespace quizapp
         {
             this.Username = username;
             this.Password = password;
+        }
 
+        public void Save()
+        {
             // Save to database
             string sql = "INSERT INTO users (username, password) VALUES (@username, @password)";
             MySqlCommand insertCommand = new MySqlCommand(sql, Connection);
@@ -50,7 +53,7 @@ namespace quizapp
             MySqlCommand query = new MySqlCommand(sql, Connection);
 
             query.Parameters.AddWithValue("@username", username);
-            query.Parameters.AddWithValue("@password", password);
+            query.Parameters.AddWithValue("@password", password.GetHashCode());
 
             try
             {
@@ -70,6 +73,40 @@ namespace quizapp
             }
 
             return false;
+        }
+
+        // Static method for retreive all users's data
+        public static List<User> GetAll ()
+        {
+            List<User> users = new List<User>();
+
+            string sql = "SELECT * FROM users";
+            MySqlCommand queryCmd = new MySqlCommand(sql, Connection);
+
+            try
+            {
+                Connection.Open();
+                queryCmd.ExecuteNonQuery();
+                using (MySqlDataReader reader = queryCmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        User user = new User(reader["username"].ToString(), reader["password"].ToString());
+                        user.Id = reader.GetInt32(reader.GetOrdinal("id"));
+                        users.Add(user);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Dialog.Error(e.Message);
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
+            return users;
         }
 
         // Static method for remove user's data from database by user's id
