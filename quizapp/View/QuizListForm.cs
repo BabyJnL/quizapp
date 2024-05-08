@@ -14,6 +14,8 @@ namespace quizapp.View
     public partial class QuizListForm : Form
     {
         private int quizId = -1;
+        private string quizType = null;
+
         public QuizListForm()
         {
             InitializeComponent();
@@ -58,9 +60,9 @@ namespace quizapp.View
         {
             DataGridView table = (DataGridView)sender;
             int idx = table.SelectedRows[0].Index;
-            this.quizId = (int)this.quizListTable.Rows[idx].Cells[0].Value;
 
-            Console.WriteLine(this.quizId);
+            this.quizId = (int)this.quizListTable.Rows[idx].Cells[0].Value;
+            this.quizType = (string)this.quizListTable.Rows[idx].Cells[2].Value;
         }
 
         private void deleteQuizBtn_Click(object sender, EventArgs e)
@@ -75,6 +77,47 @@ namespace quizapp.View
                 }
             }
             else Dialog.Error("You need to select the quiz from the lists");
+        }
+
+        private void playBtn_Click(object sender, EventArgs e)
+        {
+            if (this.quizId != -1)
+            {
+                switch (this.quizType)
+                {
+                    case "multiple_choice":
+                        {
+                            List<object> questions = MultipleChoiceQuestion.GetByQuizId(this.quizId);
+                            if (questions.Count() != 0)
+                            {
+                                PlayQuizForm playQuiz = new PlayQuizForm(questions, "multiple_choice");
+                                this.Close();
+                                playQuiz.Show();
+                            }
+                            else Dialog.Error("This quiz hasn't any questions added, please set the question first!");
+                            break;
+                        }
+                    case "essay":
+                        {
+                            List<object> questions = Question.GetByQuizId(this.quizId);
+                            if (questions.Count() != 0)
+                            {
+                                PlayQuizForm playQuiz = new PlayQuizForm(questions, "essay");
+                                this.Close();
+                                playQuiz.Show();
+                            }
+                            else Dialog.Error("This quiz hasn't any questions added, please set the question first!");
+                            break;
+                        }
+                }
+            }
+        }
+
+        private void manageUserBtn_Click(object sender, EventArgs e)
+        {
+            ManageUserForm manageUserForm = new ManageUserForm();
+            this.Close();
+            manageUserForm.Show();
         }
     }
 }

@@ -22,22 +22,6 @@ namespace quizapp.View
         }
 
         // Methods
-        private void ToggleSection(string section)
-        {
-            switch (section)
-            {
-                case "CreateQuiz":
-                {
-                    this.addQuestionBox.Visible = true;
-                    this.quizDetailBox.Visible = true;
-                    
-                    
-                    break;
-                }
-           
-            }
-        }
-
         private void ToggleMutilpleChoice(bool toggle)
         {
             this.optionABtn.Enabled = toggle;
@@ -56,7 +40,6 @@ namespace quizapp.View
             this.quizSelectionList.DataSource = quizzes;
             this.quizSelectionList.DisplayMember = "Title";
 
-            this.quizSelectionList.SelectedIndex = -1;
             this.quizSelectionList.SelectedItem = null;
         }
 
@@ -108,13 +91,13 @@ namespace quizapp.View
         {
             Quiz quiz = (Quiz)quizSelectionList.SelectedItem;
 
-            if (this.quizSelectionList.SelectedIndex != -1 || this.questionNameInput.Text != "")
+            if (this.quizSelectionList.SelectedItem != null && this.questionNameInput.Text != "")
             {
                 if (quiz.Type == "essay")
                 {
                     new Question(quiz.Id, this.questionNameInput.Text).Save();
                 }
-                else
+                else if (quiz.Type == "multiple_choice" && (this.optionABtn.Checked || this.optionBBtn.Checked || this.optionCBtn.Checked) && (this.optionAInput.Text != "" && this.optionBInput.Text != "" && this.optionCInput.Text != ""))
                 {
                     List<string> choices = new List<string>()
                     {
@@ -149,6 +132,13 @@ namespace quizapp.View
             QuizListForm quizListForm = new QuizListForm();
             this.Close();
             quizListForm.Show();
+        }
+
+        private void manageUserBtn_Click(object sender, EventArgs e)
+        {
+            ManageUserForm manageUserForm = new ManageUserForm();
+            this.Close();
+            manageUserForm.Show();
         }
     }
 }

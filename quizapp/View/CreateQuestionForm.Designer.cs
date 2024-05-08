@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.manageUserBtn = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.quizListBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
@@ -57,19 +57,20 @@
             this.addQuestionBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // manageUserBtn
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.Info;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(0, 528);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(355, 40);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Play Quiz";
-            this.button1.UseVisualStyleBackColor = false;
+            this.manageUserBtn.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.manageUserBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Info;
+            this.manageUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manageUserBtn.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manageUserBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.manageUserBtn.Location = new System.Drawing.Point(0, 528);
+            this.manageUserBtn.Name = "manageUserBtn";
+            this.manageUserBtn.Size = new System.Drawing.Size(355, 40);
+            this.manageUserBtn.TabIndex = 0;
+            this.manageUserBtn.Text = "Manage User";
+            this.manageUserBtn.UseVisualStyleBackColor = false;
+            this.manageUserBtn.Click += new System.EventHandler(this.manageUserBtn_Click);
             // 
             // button2
             // 
@@ -156,7 +157,7 @@
             "Python"});
             this.quizCategoryList.Location = new System.Drawing.Point(135, 201);
             this.quizCategoryList.Name = "quizCategoryList";
-            this.quizCategoryList.Size = new System.Drawing.Size(303, 104);
+            this.quizCategoryList.Size = new System.Drawing.Size(303, 84);
             this.quizCategoryList.Sorted = true;
             this.quizCategoryList.TabIndex = 5;
             // 
@@ -319,6 +320,7 @@
             // 
             this.questionNameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.questionNameInput.Location = new System.Drawing.Point(146, 113);
+            this.questionNameInput.MaxLength = 180;
             this.questionNameInput.Name = "questionNameInput";
             this.questionNameInput.Size = new System.Drawing.Size(303, 84);
             this.questionNameInput.TabIndex = 6;
@@ -330,9 +332,9 @@
             this.questionNameLabel.ForeColor = System.Drawing.SystemColors.Info;
             this.questionNameLabel.Location = new System.Drawing.Point(29, 145);
             this.questionNameLabel.Name = "questionNameLabel";
-            this.questionNameLabel.Size = new System.Drawing.Size(55, 20);
+            this.questionNameLabel.Size = new System.Drawing.Size(77, 20);
             this.questionNameLabel.TabIndex = 5;
-            this.questionNameLabel.Text = "Name:";
+            this.questionNameLabel.Text = "Question:";
             // 
             // quizSelectionList
             // 
@@ -341,7 +343,6 @@
             this.quizSelectionList.Location = new System.Drawing.Point(146, 38);
             this.quizSelectionList.Name = "quizSelectionList";
             this.quizSelectionList.Size = new System.Drawing.Size(303, 44);
-            this.quizSelectionList.Sorted = true;
             this.quizSelectionList.TabIndex = 4;
             this.quizSelectionList.SelectedIndexChanged += new System.EventHandler(this.quizSelectionList_SelectedIndexChanged);
             // 
@@ -366,7 +367,7 @@
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.quizListBtn);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.manageUserBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CreateQuestionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -381,7 +382,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button manageUserBtn;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button quizListBtn;
         private System.Windows.Forms.Button exitBtn;
