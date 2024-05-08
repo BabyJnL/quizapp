@@ -9,7 +9,7 @@ namespace quizapp.Model
 {
     // Polymorphism Concept & Override method
 
-    public class Question: DB
+    public class Question : DB
     {
         public int QuizId { get; set; }
         public string Name { get; set; }
@@ -43,6 +43,45 @@ namespace quizapp.Model
                 Connection.Close();
             }
         }
+
+        public static List<object> GetByQuizId (int quizId)
+        {
+            List<object> questions = new List<object>();
+
+            string sql = "SELECT * FROM question_lists WHERE quizId = @quizId";
+
+            MySqlCommand queryCmd = new MySqlCommand(sql, Connection);
+
+            queryCmd.Parameters.AddWithValue("@quizId", quizId);
+
+            try
+            {
+                Connection.Open();
+
+                using (MySqlDataReader reader = queryCmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var question = new
+                        {
+                            Question = reader["name"]
+                        };
+                        questions.Add(question);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Dialog.Bug($"{e.Message}");
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
+            return questions;
+        }
+
     }
 
     public class MultipleChoiceQuestion: Question
@@ -96,6 +135,44 @@ namespace quizapp.Model
         public bool CheckAnswer(string answer)
         {
             return (_correctAnswer == answer);
+        }
+
+        public static List<object> GetByQuizId(int quizId)
+        {
+            List<object> questions = new List<object>();
+
+            string sql = "SELECT question_lists.name AS question, question_lists.correct_answer, GROUP_CONCAT(answer_lists.answer) AS answer_lists FROM question_lists JOIN answer_lists ON question_lists.id = answer_lists.questionId WHERE question_lists.quizId = @quizId GROUP BY question_lists.name, question_lists.correct_answer;";
+            MySqlCommand queryCmd = new MySqlCommand(sql, Connection);
+
+            queryCmd.Parameters.AddWithValue("@quizId", quizId);
+
+            try
+            {
+                Connection.Open();
+                using (MySqlDataReader reader = queryCmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var question = new
+                        {
+                            Question = reader["question"],
+                            CorrectAnswer = reader["correct_answer"],
+                            AnswerLists = ((string)reader["answer_lists"]).Split(',').ToList()
+                        };
+                        questions.Add(question);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Dialog.Bug($"{e.Message}");
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
+            return questions;
         }
     }
 }
