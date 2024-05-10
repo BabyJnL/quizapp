@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,7 +43,8 @@ namespace quizapp.Model
             }
             catch (Exception e)
             {
-                Dialog.Bug($"{e.Message}");
+                if (e.Message.Contains("Duplicate entry")) Dialog.Error($"Quiz with title {this.Title} already exists!");
+                else Dialog.Bug($"{e.Message}");
             }
             finally
             {
